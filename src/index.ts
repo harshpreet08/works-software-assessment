@@ -1,5 +1,5 @@
 import express from "express";
-import { connectToMongoDB } from "./db";
+import connectToMongoDB  from "./db";
 import cors from "cors";
 import noteRoutes from "./notesRoutes"
 

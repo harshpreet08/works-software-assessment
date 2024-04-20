@@ -5,6 +5,7 @@ import { getClient } from "./db";
 const client = getClient();
 const DB_NAME = "notes";
 
+// Create Note API
 async function createNote(req: Request, res: Response) {
     try {
         const { title, content } = req.body;
@@ -29,6 +30,7 @@ async function createNote(req: Request, res: Response) {
     }
 }
 
+// Get all notes API
 async function getNotes(req: Request, res: Response) {
     try {
         const db = client.db(DB_NAME);
@@ -41,6 +43,7 @@ async function getNotes(req: Request, res: Response) {
     }
 }
 
+// Get note by Id API
 async function getNoteById(req: Request, res: Response) {
     try {
         const { id } = req.params;
@@ -57,6 +60,7 @@ async function getNoteById(req: Request, res: Response) {
     }
 }
 
+// Update note by Id API
 async function updateNoteById(req: Request, res: Response) {
     try {
         const { id } = req.params;
@@ -77,6 +81,7 @@ async function updateNoteById(req: Request, res: Response) {
     }
 }
 
+// Delete note by Id API
 async function deleteNoteById(req: Request, res: Response) {
     try {
         const { id } = req.params;

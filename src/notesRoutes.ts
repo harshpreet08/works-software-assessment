@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.use(express.json());
 
+// Routes for notes API's
 router.post("/", notesHandlers.createNote);
 router.get("/", notesHandlers.getNotes);
 router.get("/:id", notesHandlers.getNoteById);

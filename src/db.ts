@@ -1,19 +1,13 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { MongoClient } from "mongodb";
 
 require('dotenv').config();
 const uri = process.env.MONGODB_URI || '';
+const client = new MongoClient(uri);
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-export async function connectToMongoDB() {
+async function connectToMongoDB() {
   try {
     await client.connect();
+    console.log("Connected to MongoDB");
   } catch (err) {
     console.error("Error connecting to MongoDB:", err);
   }
@@ -22,3 +16,5 @@ export async function connectToMongoDB() {
 export function getClient() {
   return client;
 }
+
+export default connectToMongoDB;
